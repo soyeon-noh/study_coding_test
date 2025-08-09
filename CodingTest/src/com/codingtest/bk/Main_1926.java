@@ -9,6 +9,13 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+// 문제 
+//어떤 큰 도화지에 그림이 그려져 있을 때, 그 그림의 개수와, 
+//그 그림 중 넓이가 가장 넓은 것의 넓이를 출력하여라. 
+//단, 그림이라는 것은 1로 연결된 것을 한 그림이라고 정의하자. 
+//가로나 세로로 연결된 것은 연결이 된 것이고 대각선으로 연결이 된 것은 떨어진 그림이다. 
+//그림의 넓이란 그림에 포함된 1의 개수이다.
+
 public class Main_1926 {
 	// 따로 클래스를 선언하거나 메소드를 이용하려면 static 변수를 쓰는 게 낫다.
 	// 나도 따라해본다.
@@ -45,7 +52,7 @@ public class Main_1926 {
 		// 일단 2차원 배열에 도화지 정보 저장
 		map = new int[N][M];
 		visited = new boolean[N][M]; // 와 이거 생성안하면 NPE뜸
-		
+	
 		for(int i = 0; i < N; i++) {
 			StringTokenizer stInFor = new StringTokenizer(br.readLine());
 			for(int j = 0; j < M; j++) {
@@ -53,10 +60,12 @@ public class Main_1926 {
 			}
 		}
 		
+		// 탐색 시
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < M; j++) {
 				// map 숫자가 1이고, 방문하지 않은 경우 
 				if(map[i][j] == 1 && !visited[i][j]) {
+					// 방문처리하
 					visited[i][j] = true;
 					// bfs 탐색하자
 					bfs(i,j); 
@@ -86,16 +95,16 @@ public class Main_1926 {
 	// 복잡하고 좌표 변수가 i,j가 되면서 가독성이 떨어짐.
 	static void bfs(int r, int c) {
 		Queue<Pos> queue = new ArrayDeque<>();
-		queue.add(new Pos(r, c));// 자 이제 시작이야
+		queue.add(new Pos(r, c));// 자 이제 시작이야. 큐에 탐색 시작하는 좌표 add
 		int width = 1; // 위 좌표가 1이고 방문하지 않은 경우부터 시작이니까 1로 시작.
 		// 큐가 빌 때까지 탐색
 		while(!queue.isEmpty()) {
 			// 하나 꺼내
 			Pos current = queue.poll();
 			// 꺼낸 걸로 4방향 탐색해
-			for(int d = 0; d < deltas.length; d++) {
-				int nr = deltas[d][0];
-				int nc = deltas[d][1];
+			for(int d = 0; d < deltas.length; d++) { // 오답노트 
+				int nr = current.r + deltas[d][0]; // 여기서 current.r을 하지 않아 답이 옳게 나오지 않
+				int nc = current.c + deltas[d][1];
 				// 배열 방향탐색에서 주의해야할 것 : 범위를 벗어나지 않았나
 				// 이 내용을 따로 메서드를 빼서 처리하는 법을 찾음 
 				// inSpace 함수 생성
@@ -118,6 +127,7 @@ public class Main_1926 {
 		maxWidth = Math.max(maxWidth, width);
 	}
 	
+	// 좌표가 도화지 범위 안에 있는지 확인
 	static boolean isSpace(int r, int c) {
 		if(r >= 0 && c >= 0 && r < N && c < M) {
 			return true;

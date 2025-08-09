@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
 // 효율적인 해킹
 // 시간초과가 많이 나는 것 같다...
 // 일단 나는 풀이법에만 집중해보자...
-public class Main_1325 {
+public class Main_1325_노소연 {
 
 	static int N, M;
 	static int[] cnt; //해킹 할 수 있는 컴퓨터의 수를 저장하는 배열 
