@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Main_1991 { // 트리순회
+public class Main_1991_트리순회 { // 트리순회
 
 	// 아이디어
 	// - 이진 트리를 배열에 어떻게 담느냐가 관건.
@@ -40,7 +40,7 @@ public class Main_1991 { // 트리순회
 			char root = st.nextToken().charAt(0); // charAt(0)으로 문자하나 빼냄
 			char left = st.nextToken().charAt(0);
 			char right = st.nextToken().charAt(0);
-			
+			// 입력받은 값을 트리 노드로 만드는 메서드 
 			insertNode(head, root, left, right);
 		}	
 		
@@ -66,14 +66,18 @@ public class Main_1991 { // 트리순회
 		}
 	}
 	
+	// 재귀호출을 통해 트리에 새로운 노드 추가
 	public static void insertNode(Node temp, char root, char left, char right) {
 		// 현재 탐색하고 있는 노드 temp
 		// 목표노드 root를 찾아서 계속 자식을 내려감
-		// 
-		if(temp.value == root) {
+		
+		// root에 들어간 글자 위치가 temp니? 값비교해 
+		if(temp.value == root) { // 맞으면 입력에 맞춰 값 저장 
 			temp.left = (left == '.' ? null : new Node(left, null, null));
 			temp.right = (right == '.' ? null : new Node(right, null, null));
 		} else {
+			// root에 들어간 글자 위치를 찾아 떠났는데 아니래
+			// 그대로 입력받은 거 들고 재귀해
 			if(temp.left != null) insertNode(temp.left, root, left, right);
 			if(temp.right != null) insertNode(temp.right, root, left, right);
 		}
