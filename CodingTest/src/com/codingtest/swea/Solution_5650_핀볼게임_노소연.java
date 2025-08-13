@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Solution_5650_노소연 {
+public class Solution_5650_핀볼게임_노소연 {
 
 	static int[][] map; // NxN 크기의 배열 
 	static int N, ans; // N : 5 ~ 100 사이, ans 최대 점수  

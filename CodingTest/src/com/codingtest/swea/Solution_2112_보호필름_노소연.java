@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_2112_노소연_보호필름 {
+public class Solution_2112_보호필름_노소연 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		

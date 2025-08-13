@@ -2,7 +2,7 @@ package com.codingtest.swea;
 
 import java.util.Scanner;
 
-public class Solution_5650_보충수업 {
+public class Solution_5650_핀볼게임_양명균쌤 {
     static int[][] map; // NxN 크기의 배열 -1 ~ 10 각각의 의미하는 바가 있다더라
     static int N, ans; // N : 5 ~ 100사이 , ans 최대 점수를 의미할거야!
     static int[] dr = { -1, 1, 0, 0 };
