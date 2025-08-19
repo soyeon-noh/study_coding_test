@@ -10,6 +10,10 @@ public class Solution_1873_상호의배틀필드 {
 
 	static char[][] map;
 	static int nowR, nowC;
+	
+	static int[] dx = {-1, 1, 0, 0}; // 상 하 좌 우 
+	static int[] dy = {0, 0, -1, 1};
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -37,16 +41,19 @@ public class Solution_1873_상호의배틀필드 {
 			// 1~H까지 for문 돌려서 입력받기 
 			
 			for(int r = 1; r < H+1; r++) {
-				String token = br.readLine();
+				String stringInputLine = br.readLine();
+//				map[r] = br.readLine().toCharArray(); // 추가 피드백 : 이걸 사용하면 2중for문없이 입력 가능 
 				for(int c = 1; c < W+1; c++) {
-//					System.out.println(token);
-					map[r][c] = token.charAt(c - 1);
+					map[r][c] = stringInputLine.charAt(c - 1);
 					if(map[r][c] == '^' || map[r][c] == 'v' || map[r][c] == '<' || map[r][c] == '>') {
 						nowR = r;
 						nowC = c;
 					}
 				}
 			} // 필드 입력 끝
+			
+			// 추가 피드백 : 입력 확인 해보기
+//			System.out.println(Arrays.deepToString(map)); // 2차원배열 확인 
 			
 			N = Integer.parseInt(br.readLine());
 //			st = new StringTokenizer(br.readLine());
@@ -83,35 +90,36 @@ public class Solution_1873_상호의배틀필드 {
 				sb.append("\n");
 			}// 출력 끝
 			
-			System.out.println(sb.toString());
+			
 		}
+		System.out.println(sb.toString()); // 오답노트 : 출력위치 주의하자 
 	}
 
 	private static void shoot() {
-		int[] dx = {-1, 1, 0, 0};
-		int[] dy = {0, 0, -1, 1};
 		int index = -1;
 		if(map[nowR][nowC] == '^') index = 0;
 		else if(map[nowR][nowC] == 'v') index = 1;
 		else if(map[nowR][nowC] == '<') index = 2;
 		else if(map[nowR][nowC] == '>') index = 3;
 		
+		// 포탄 좌표 
+		int bx = nowR + dx[index];
+		int by = nowC + dy[index];
 		
-		int nx = nowR + dx[index];
-		int ny = nowC + dy[index];
-		
-		while(map[nx][ny] != '#') {
-			if(map[nx][ny] == '*') {
-				map[nx][ny] = '.';
+		while(true) {
+			if(map[bx][by] == '#') {
+				break;
 			}
-			nx += dx[index];
-			ny += dy[index];
+			if(map[bx][by] == '*') {
+				map[bx][by] = '.';
+				break; // 오답노트 : 벽돌에부딪혔을 때 종료해줘야함. 
+			}
+			bx += dx[index];
+			by += dy[index];
 		}
 	}
 
-	private static void move(char way) {
-		int[] dx = {-1, 1, 0, 0};
-		int[] dy = {0, 0, -1, 1};
+	private static void move(char way) { // 추가 피드백 : 파라미터가 index인게 깔끔하지 않니? 
 		int index = -1; // 말도 안되는 값으로 초기화
 		
 		if(way == '^') index = 0;
