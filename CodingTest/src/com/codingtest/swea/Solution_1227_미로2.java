@@ -12,7 +12,6 @@ public class Solution_1227_미로2 {
 	static int[][] map = new int[100][100];
 	static int[] dx = {-1, 1, 0, 0 };
 	static int[] dy = {0, 0, -1, 1};
-//	static int[][] visited;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
