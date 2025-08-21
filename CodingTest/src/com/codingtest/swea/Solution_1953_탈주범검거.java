@@ -73,9 +73,9 @@ public class Solution_1953_탈주범검거 {
 			int curC = cur[1];
 			int time = cur[2];
 
-			int[] pipeDir = pipe[map[curR][curC]];
+//			int[] pipeDir = pipe[map[curR][curC]];
 
-			for (int d : pipeDir) {
+			for (int d : pipe[map[curR][curC]]) {
 				int newR = curR + dx[d];
 				int newC = curC + dy[d];
 
@@ -102,11 +102,12 @@ public class Solution_1953_탈주범검거 {
 	}
 
 	private static boolean check(int newR, int newC) {
-		if (newR >= 0 && newR < N && newC >= 0 && newC < M) {
-//			System.out.println(newR +" " +newC + "는 범위에 맞다");
-			return true;
-		}
-		return false;
+//		if (newR >= 0 && newR < N && newC >= 0 && newC < M) {
+////			System.out.println(newR +" " +newC + "는 범위에 맞다");
+//			return true;
+//		}
+//		return false;
+		return newR >= 0 && newR < N && newC >= 0 && newC < M;
 	}
 
 }
