@@ -8,7 +8,6 @@ public class Solution_1227_미로2 {
 	
 	static int ans;
 	static int[] startPos = new int[2];
-	static int[] endPos = new int[2];
 	static int[][] map = new int[100][100];
 	static int[] dx = {-1, 1, 0, 0 };
 	static int[] dy = {0, 0, -1, 1};
@@ -31,10 +30,7 @@ public class Solution_1227_미로2 {
 					if(map[i][j] == 2) {
 						startPos[0] = i;
 						startPos[1] = j;
-					} else if(map[i][j] == 3) {
-						endPos[0] = i;
-						endPos[1] = j;
-					}
+					} 
 				}
 			}// 입력끝
 			
