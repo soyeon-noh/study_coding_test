@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_1486_노소연 {
+public class Solution_1486_장훈이의높은선반_노소연 {
 	
 	static int N, B; // N =< 20
 	static int ans = Integer.MAX_VALUE;
