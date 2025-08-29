@@ -44,16 +44,15 @@ import java.util.StringTokenizer;
  *  -출력 (출력은 문제보기가 아니라 ouput.txt가 맞습니다.)
  *  #testcase 최단경로이동거리
  */
-public class SW1247_Solution_Permutation{
+public class Solution_1247_DFS_Pruning{
 	
 	static int T, N; //테스트케이스, 고객 수
 	static Point company; //회사 좌표 Point 클래스 정의하거나 java.awt.Point 이용
 	static Point home;	  //집 좌표	
 	static Point [] customers; //고객들 좌표 
 	static int minDistance; //최단경로이동거리 출력할 정답!
-	//순열을 위한 변수
-	static boolean [] visited;//방문 여부 isSelected
- 	static int [] inputs; //고객방문순서
+	static boolean [] visited; //방문체크
+
 	
 	public static void main(String[] args) throws Exception{ //시험볼때 일단 던져 놓자!
 		
@@ -66,7 +65,6 @@ public class SW1247_Solution_Permutation{
 			N = Integer.parseInt(in.readLine()); // 고객 수
 			//testCase별 초기화
 			visited = new boolean[N]; //고객 방문여부
-			inputs = new int[N]; //순열방문 순서 저장
 			customers = new Point[N]; //고객배열 생성
 			minDistance = Integer.MAX_VALUE; //최소 거리 초기화
 			
@@ -78,51 +76,37 @@ public class SW1247_Solution_Permutation{
 			for(int i=0; i<N; i++)
 				customers[i] = new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())); //고객들
 			
-			//2.순열생성(permutation)
-			permutation(0);
+			//2.dfs
+			dfs(0,home, 0);
 			
 			//3.출력
 			sb = new StringBuilder("#").append(testCase).append(" ").append(minDistance);
 			System.out.println(sb.toString());
 
 		}
-		
-		
-		
 	}
 
-	private static void permutation(int count) {
-		//기저조건 - 고객 순서를 다 정한 경우(N명 방문순서 확정)
-		if(count == N) {
-			int distance =0;
-			Point cur = company; //회사에서 출발
-			//정해진 방문 순서대로 고객들 방문
-			for(int i=0; i<N; i++) {
-				Point next = customers[inputs[i]];
-				distance += Math.abs(cur.x-next.x) + Math.abs(cur.y-next.y);
-				cur = next;
-			}
-			
-			//마지막 고객 -> 집까지 거리 추가
-			distance += Math.abs(cur.x-home.x)+Math.abs(cur.y-home.y);
-			
-			//최소거리 갱신
-			minDistance = Math.min(minDistance, distance);
+	private static void dfs(int cur, Point from, int count) {
+		if(cur == N) {
+			count += getDistance(from, company);
+			minDistance = Math.min(minDistance, count);
 			return;
 		}
 		
-		//아직 방문하지 않은 고객을 선택해서 순열 구성
-		for(int i=0; i< N; i++) {
-			if(visited[i]) continue;
-			
-			inputs[count] = i; //i번째 고객 방문 선택
-			visited[i] = true; //방문표시
-			permutation(count+1); //다음 고객 선택
-			visited[i] = false;
-			
+		for(int i=0; i <N; i++) {
+			if(!visited[i]) {
+				visited[i] = true;
+				dfs(cur+1, customers[i],count+getDistance(from, customers[i]));
+				visited[i]=false;
+			}
 		}
-		
 	}
-}
+	
+	
+	//맨해튼거리 계산
+	static int getDistance(Point c1, Point c2) {
+		return Math.abs(c1.x - c2.x) + Math.abs(c1.y-c2.y);
+	}
+	
 
-			 		
+}

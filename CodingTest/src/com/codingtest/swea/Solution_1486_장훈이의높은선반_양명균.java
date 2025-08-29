@@ -1,7 +1,5 @@
 package com.codingtest.swea;
 
-import static java.lang.Math.pow;
-
 import java.util.Scanner;
 
 public class Solution_1486_장훈이의높은선반_양명균 {
