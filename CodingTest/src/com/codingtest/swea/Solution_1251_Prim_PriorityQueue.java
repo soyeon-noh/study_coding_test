@@ -55,6 +55,7 @@ public class Solution_1251_Prim_PriorityQueue {
 			this.index = index;
 			this.cost = cost;
 		}
+		
 		@Override
 		public int compareTo(Node o) {
 			//가중치로 오름차순 정렬
