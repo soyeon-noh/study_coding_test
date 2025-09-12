@@ -35,10 +35,7 @@ public class Main_9084_동전 {
 				for(int j = 0; j < v.length; j++) {
 					
 					if(i >= v[j]) {
-//						System.out.println(min);
-//						System.out.println(i-v[j]+1);
 						min = Math.min(min, dp[i-v[j]] + 1);
-//						System.out.println("ㅇㅅㅇ" + min);
 					}
 				}
 				
