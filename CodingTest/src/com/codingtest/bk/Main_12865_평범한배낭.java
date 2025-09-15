@@ -14,6 +14,7 @@ import java.util.StringTokenizer;
  */
 public class Main_12865_평범한배낭 {
 
+
 	static int N, K;
 	static int[] value, weight;
 	static int[][] dp;
