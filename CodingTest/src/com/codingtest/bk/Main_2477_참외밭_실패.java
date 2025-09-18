@@ -3,7 +3,7 @@ package com.codingtest.bk;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main_2477_참외밭 {
+public class Main_2477_참외밭_실패 {
 
 	// 동 1
 	// 서 2

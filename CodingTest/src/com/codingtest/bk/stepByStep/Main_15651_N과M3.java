@@ -7,7 +7,9 @@ public class Main_15651_N과M3 {
 
 	static int N, R;
 	static int result[];
+	static StringBuilder sb;
 	public static void main(String[] args) {
+		sb = new StringBuilder();
 		
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
@@ -16,14 +18,15 @@ public class Main_15651_N과M3 {
 		result = new int[R];
 		
 		permutation(0);	
+		System.out.println(sb.toString());
 	}
 	
 	private static void permutation(int cnt) {
 		if(cnt == R) {
 			for(int n :result) {
-				System.out.print(n + " ");
+				sb.append(n).append(" ");
 			}
-			System.out.println();
+			sb.append("\n");
 			return;
 		}
 		

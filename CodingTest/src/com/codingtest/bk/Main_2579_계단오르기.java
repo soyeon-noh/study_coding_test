@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
  * - 얻을 수 있는 총 점수의 최댓값
  *
  */
-public class Main_2579_계단오르락_내리락 {
+public class Main_2579_계단오르기 {
 
 	static int N; // 6
 	static int[] arr; // 10 20 15 25 10 20
