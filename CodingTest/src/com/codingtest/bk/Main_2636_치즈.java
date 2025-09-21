@@ -19,7 +19,7 @@ public class Main_2636_치즈 {
 		C = Integer.parseInt(st.nextToken());
 		map = new int[R][C];
 		visited = new boolean[R][C];
-		
+	
 		for(int i = 0; i < R; i++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0; j < C; j++) {
@@ -31,9 +31,7 @@ public class Main_2636_치즈 {
 			cnt = 0;
 			
 			bfs(0,0);
-		}
-		
-		
+		}	
 	}
 
 	private static void bfs(int r, int c) {
