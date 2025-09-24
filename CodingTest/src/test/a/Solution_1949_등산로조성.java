@@ -18,7 +18,7 @@ public class Solution_1949_등산로조성 {
 	// 가장 긴 등산로 길이 출력
 	
 	static int[][] map; // 낮은곳으로만 갈 수 있으니 방문처리 안 해도 될듯?
-	static boolean[][] visited;
+	static boolean[][] visited; // 방문처리 안 해도 되는줄 알았다가. 봉우리 컷당해서 추가 
 	static int N, K;
 	static int[] dr = {-1, 1, 0, 0};
 	static int[] dc = {0, 0, -1, 1};
@@ -100,6 +100,7 @@ public class Solution_1949_등산로조성 {
 				dfs(nr, nc, canGongSa, cnt + 1);
 				visited[r][c] = false;
 				
+			// 여기가 안 떠오름. 공사를 어떻게 처리해야할지 
 			}else if(canGongSa && map[nr][nc] - K < map[r][c]){
 				int original = map[nr][nc]; // 복사해놓고
 				map[nr][nc] = map[r][c] -1 ; // 최소한으로 깎고 탐색

@@ -34,6 +34,13 @@ public class Solution_1952_수영장 {
 			System.out.println("#" + tc + " " + ans);
 		}
 	}
+	
+	// 그러니까. dfs가.
+	// 한 선택에서 다음 선택을 할 때
+	// 경우의 수를 다 dfs() 호출로 돌리는 거다?? 
+	
+	// 일단 무엇을 현재(cur, pos 등등.. )으로 볼지를 생각하고
+	// 그에 따라 무슨 값이 변하는 지를 떠올려보자. 
 	private static void dfs(int cur, int sum) {
 		
 //		cur++;
@@ -49,14 +56,14 @@ public class Solution_1952_수영장 {
 		// 1달 선택
 		dfs(cur + 1, sum + price[1]);
 		// 3달 선택
-		if(cur >= 3) {
+//		if(cur < 11) { //오답노트. 이게 없어도 된다.  
 			dfs(cur + 3, sum + price[2]);
-		}
+//		}
 		
 		// 1년 선택
-		if(cur == 1) {
-			dfs(cur + 1, price[3]);
-		}
+//		if(cur == 1) { //오답노트. 이게 없어도 된다. 
+			dfs(cur + 12, price[3]);
+//		}
 		
 		
 	}
