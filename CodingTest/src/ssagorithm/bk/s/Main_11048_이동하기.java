@@ -36,7 +36,6 @@ public class Main_11048_이동하기 {
 	
 	private static void dfs() {
 		
-		if()
 		
 	}
 }
