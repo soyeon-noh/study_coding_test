@@ -1,8 +1,10 @@
 package bk.silver; //S1
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -72,7 +74,11 @@ public class Main_1325_효율적인해킹 {
 				sb.append(i).append(" ");				
 			}
 		}
-		System.out.println(sb.toString());
+		
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		bw.write(sb.toString());
+		bw.flush();
+		bw.close();
 		
 	}
 	private static void dfs(int cur, boolean[] visited) {
