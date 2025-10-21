@@ -1,94 +1,96 @@
-package bk.silver; //S1
+package bk.silver;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 문제이해
- * - 1부터 N번까지의 컴퓨터
- * - A가 B를 신뢰 = B -> A
- * - 가장 연결된 것이 많은 노드를 찾기
+ * 문제 이해
+ * - N (10,000) - 정점 최대수 
+ * - M (100,000) - 간선 최대수
+ * - 인접리스트 완탐시 시간복잡도 
+ * - N x (N + M) = 11억 
  * 
- * 주의할 점
- * - 출력 : 오름차순 
- * - N = 10,000 (노드 1만)
- * - M = 100,000 (간선 10만)
- * - 시간복잡도 10억번이라는 뎁쇼 
- * 
- * 전략
- * - DFS하면서 카운팅. 매개변수는 현재 위치 => 시간초과 실패 
- * - BFS
- * 
- * 후기 
- * - 인접리스트 선언 및 생성 방법을 잊어버림
- * - dfs에서 방문처리를 잊어버려서 영원히 루프돌음 
- * - 시간초과 몇번나는 거임
- * - 상황이 심각하여 2시간 동안 안풀려서 실패코드 올리겠습니다 
+ * - 1부터 N까지 번호의 정점 
+ *  
+ * - A B
+ * - A가 B를 신뢰한다. 
+ * - B를 해킹하면 A도 해킹할 수 있다.
+ * - B -> A 방향의 그래프
+ *
  */
 public class Main_1325_효율적인해킹 {
 	
 	static int N, M;
-	static ArrayList<Integer>[] adj; // 인접리스트 
-	static int[] count;
-	static boolean[] visited;
+	static ArrayList<Integer>[] adj;
+	static int[] visited; // visitToken 방식
+	static int[] cnt;
+	static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		StringBuilder sb = new StringBuilder();
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
-		adj = new ArrayList[N+1]; // 인접리스트 
-		for(int i = 0; i < N+1; i++) {
-			adj[i] = new ArrayList<Integer>();
-		}//초기화 
-		count = new int[N+1];
+		adj = new ArrayList[N+1]; //제발 선언이랑 초기화좀 제대로 하기
+		for(int i = 1; i <= N; i++) { 
+			adj[i] = new ArrayList<>();
+		}
+		visited = new int[N+1];
 		
-		int from, to;
-		for(int i = 0; i < M; i++) {
+		for(int i = 0 ; i < M; i++) {
 			st = new StringTokenizer(br.readLine());
-			to = Integer.parseInt(st.nextToken());
-			from = Integer.parseInt(st.nextToken());	
+			int A = Integer.parseInt(st.nextToken());
+			int B = Integer.parseInt(st.nextToken());
 			
-			adj[to].add(from); // B -> A
+			adj[B].add(A);
+		}// 입력끝
+		
+		
+		cnt = new int[N+1];
+		for(int i = 1 ; i <= N; i++) {// 노드번호는 1부터 시작함
+			bfs(i);
 		}
 		
-		for(int i = 1; i <= N; i++) { //1~M까지의 컴퓨터
-			dfs(i, new boolean[N+1]);
+		//최대값 찾기 
+		int max = cnt[1];
+		sb.append(1).append(" ");
+		
+		for(int i = 2; i <= N; i++) {
+			if(max < cnt[i]) {
+				max = cnt[i];
+				sb.setLength(0);
+				sb.append(i).append(" ");
+			}else if(max == cnt[i]) sb.append(i).append(" ");
 		}
 		
-		// 최대값 찾기 
-		int max = 0;
-		for(int i = 1; i <= N; i++) {
-			max = Math.max(max, count[i]);
-		}
-		
-		// 출력 
-		for(int i = 1; i <= N; i++) {
-			if(count[i] == max) {
-				sb.append(i).append(" ");				
-			}
-		}
-		
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		bw.write(sb.toString());
-		bw.flush();
-		bw.close();
-		
+		System.out.println(sb.toString().trim());
 	}
-	private static void dfs(int cur, boolean[] visited) {
-		visited[cur] = true;
-		for(int next : adj[cur]) {
-			if(!visited[next]) {
-				count[next]++;
-				dfs(next, visited);
+
+	private static void bfs(int start) {
+		Queue<Integer> q = new ArrayDeque<>();
+		q.add(start); 
+		visited[start] = start; 
+		int count = 1;
+		
+		
+		while(!q.isEmpty()) {
+			
+			int node = q.poll(); 
+			for(int next :  adj[node]) { 
+				if(visited[next] == start) continue;  
+				q.add(next); 
+				visited[next] = start;
+				++count;
 			}
 		}
+		
+		cnt[start] = count;
 
 	}
 }
