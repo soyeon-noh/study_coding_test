@@ -1,4 +1,4 @@
-package codetree.day7; // 4
+package bk.silver; // 4
 
 import java.io.BufferedReader;
 import java.io.IOException;
