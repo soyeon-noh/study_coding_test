@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
  * - dx dy
  * 
  */
-public class Solution_1249_노소연 {
+public class Solution_1249_보급로 {
 
 	static int T, N;
 	static int[] dr = {-1, 1, 0, 0};
@@ -108,6 +108,7 @@ public class Solution_1249_노소연 {
 			
 			for(int d = 0; d < 4; d++) {
 				int nr = r + dr[d];
+				
 				int nc = c + dc[d];
 				
 				if(nr >= 0 && nc >= 0 && nr < N && nc < N) {
