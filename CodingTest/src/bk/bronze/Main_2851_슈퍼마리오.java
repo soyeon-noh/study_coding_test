@@ -1,4 +1,4 @@
-package week;
+package bk.bronze;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package week;
+package bk.silver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

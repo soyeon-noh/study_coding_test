@@ -1,4 +1,4 @@
-package week; // 보급로
+package swea.d4; // 보급로
 
 import java.io.BufferedReader;
 import java.io.IOException;
