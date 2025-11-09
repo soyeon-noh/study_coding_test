@@ -11,6 +11,8 @@ import java.util.StringTokenizer;
  * - 병사수가 최대 200x10만 = 2천만
  * - 병사 번호가 2^31 (long 주의)
  *
+ * 전략
+ * - 순서와 상관없이 출현 빈도를 세어야할 때 -> HashMap
  *
  */
 public class Main_1270_전쟁_땅따먹기 {
