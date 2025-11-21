@@ -45,7 +45,8 @@ public class Main_28278_스택2 {
 			switch (order) {
 				case 1:
 					stack.push(Integer.parseInt(st.nextToken()));
-					break;
+//					break;
+					continue;
 				case 2:
 					if(stack.isEmpty()) {
 						sb.append("-1");
