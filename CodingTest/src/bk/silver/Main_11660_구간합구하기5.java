@@ -1,4 +1,4 @@
-package week; // 실버 1
+package bk.silver; // 실버 1
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
