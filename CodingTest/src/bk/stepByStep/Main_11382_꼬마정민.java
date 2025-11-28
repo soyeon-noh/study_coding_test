@@ -1,4 +1,4 @@
-package week; // 브5 
+package bk.stepByStep; // 브5 
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

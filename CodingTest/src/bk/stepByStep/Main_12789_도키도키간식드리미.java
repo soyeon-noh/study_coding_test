@@ -1,4 +1,4 @@
-package week;// 실3
+package bk.stepByStep;// 실3
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

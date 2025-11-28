@@ -1,4 +1,4 @@
-package week; // 실버3
+package bk.stepByStep; // 실버3
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

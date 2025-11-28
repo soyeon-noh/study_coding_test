@@ -1,4 +1,4 @@
-package week;
+package bk.stepByStep;
 
 /**
  * 문제이해 
