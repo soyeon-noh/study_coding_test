@@ -1,4 +1,4 @@
-package week; //브 3
+package bk.stepByStep; //브 3
 
 import java.util.Scanner;
 
