@@ -1,4 +1,4 @@
-package week;
+package week; // 실버 4
 
 import java.io.BufferedReader;
 import java.io.IOException;
