@@ -22,46 +22,36 @@ import java.io.InputStreamReader;
  * 
  * 생각
  * - 답이 두가지 이상인 경우가 뭘까. 910 -> 9 10과 910 910
- * - 
+ * - 여러 방식을 시도해보았으나 코드가 복잡해지고 조건만 늘어나서 그냥 다 돌리기로함
+ * 
+ * 반성
+ * - 도저히 답이 안 나와서 검색의 힘을 빌렸지만 아직 이해가 가지 않는다.
+ * - 이거 왜 되는 거임?
  */
 public class _Main_2235_수학은체육과목입니다3 {
 
-	static String S;
 	static int A, B;
-	static char[] arr;
+	static int[] arr;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		S = br.readLine(); //입력끝
-		
-		arr = S.toCharArray();
-		
-		// 앞 한 수에 +1을 해.
-		// 그리고 뒤수랑 일치하는지 봐.
-		// 아니야? 그러면 앞에 두수에 +1을해 
-		// 그리고 뒤 두수랑 일치하는지를 봐
-		// 이걸 4자리까지 하는거임
-		
-		int len = arr.length;
-		
-
-		if(len == 1 || arr[0] + 1 == arr[1]) {
-			A = arr[0] - '0';
-		}else if(len <= 3 || arr[1] + 1 == arr[3]) {
-			if(len == 2) {
-				A = (arr[0] - '0') * 10 + (arr[1] - '0');	
-			}else if(len == 3){
-				A = (arr[0] - '0') * 100 + (arr[1] - '0') * 10 + (arr[2] - '0');
+		String S = br.readLine(); //입력끝
+		int targetlen = S.length();
+				
+		for(int A = 1; A <= 999; A++) {
+			StringBuilder sb = new StringBuilder();
+	
+			for(int B = A; B <= 999; B++) {
+				sb.append(B);
+				
+				 // 길이가 목표보다 커지면 더 붙일수록 더 커지므로 break
+				if(sb.length() > targetlen) break;
+				// 길이가 같아졌을 때만 비교
+				if(sb.length() == targetlen && sb.toString().equals(S)) {
+					System.out.println(A + " " + B);
+					return; // A 오름차순이므로 가장 작은 A의 해를 바로 출력
+				}
 			}
-		}else if(len <= 4 || arr[2] + 1 == arr[5]) {
-			A = (arr[0] - '0') * 100 + (arr[1] - '0') * 10 + (arr[2] - '0');
-			if(len == 4) {
-				A = (arr[0] - '0') * 1000 + (arr[1] - '0') * 100 + (arr[2] - '0') * 10 + (arr[3] - '0');
-			}
-		}else if(arr[3] + 1 == arr[7]) {
-			A = (arr[0] - '0') * 1000 + (arr[1] - '0') * 100 + (arr[2] - '0') * 10 + (arr[3] - '0');
 		}
-		
-		System.out.println(A);
 	}
 }
