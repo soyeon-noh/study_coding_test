@@ -28,11 +28,40 @@ public class _Main_2235_수학은체육과목입니다3 {
 
 	static String S;
 	static int A, B;
+	static char[] arr;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		S = br.readLine(); //입력끝
 		
+		arr = S.toCharArray();
 		
+		// 앞 한 수에 +1을 해.
+		// 그리고 뒤수랑 일치하는지 봐.
+		// 아니야? 그러면 앞에 두수에 +1을해 
+		// 그리고 뒤 두수랑 일치하는지를 봐
+		// 이걸 4자리까지 하는거임
+		
+		int len = arr.length;
+		
+
+		if(len == 1 || arr[0] + 1 == arr[1]) {
+			A = arr[0] - '0';
+		}else if(len <= 3 || arr[1] + 1 == arr[3]) {
+			if(len == 2) {
+				A = (arr[0] - '0') * 10 + (arr[1] - '0');	
+			}else if(len == 3){
+				A = (arr[0] - '0') * 100 + (arr[1] - '0') * 10 + (arr[2] - '0');
+			}
+		}else if(len <= 4 || arr[2] + 1 == arr[5]) {
+			A = (arr[0] - '0') * 100 + (arr[1] - '0') * 10 + (arr[2] - '0');
+			if(len == 4) {
+				A = (arr[0] - '0') * 1000 + (arr[1] - '0') * 100 + (arr[2] - '0') * 10 + (arr[3] - '0');
+			}
+		}else if(arr[3] + 1 == arr[7]) {
+			A = (arr[0] - '0') * 1000 + (arr[1] - '0') * 100 + (arr[2] - '0') * 10 + (arr[3] - '0');
+		}
+		
+		System.out.println(A);
 	}
 }

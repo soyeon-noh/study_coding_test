@@ -1,4 +1,4 @@
-package week;
+package week; // 브3
 
 import java.util.Scanner;
 
