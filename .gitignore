@@ -1,5 +1,7 @@
 /.metadata/
 
+/.recommenders
+
 # Compiled class files
 *.class
 

@@ -1,4 +1,4 @@
-package week; // 브3
+package bk.bronze; // 브3
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ import java.util.Scanner;
  * - 그럼 답이 10^9 * 4까지 수용가능해야함.
  *
  */
-public class _Main_15894_수학은체육과목입니다 {
+public class Main_15894_수학은체육과목입니다 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

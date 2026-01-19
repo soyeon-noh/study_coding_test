@@ -1,4 +1,4 @@
-package week; // 브 4
+package bk.bronze; // 브 4
 
 import java.util.Scanner;
 
@@ -31,7 +31,7 @@ import java.util.Scanner;
  * - 0이 나오면 2
  * - 
  */
-public class _Main_17362_수학은체육과목입니다2 {
+public class Main_17362_수학은체육과목입니다2 {
 	
 	static int N;
 	static int ans;
