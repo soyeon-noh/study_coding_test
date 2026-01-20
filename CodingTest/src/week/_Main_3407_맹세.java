@@ -28,6 +28,11 @@ public class _Main_3407_맹세 {
         for(int tc = 1; tc <= T; tc++){
 
             String input = br.readLine();
+
+            // 소문자로만 체크
+            input = input.toLowerCase();
+
+            
         }
 
     }
