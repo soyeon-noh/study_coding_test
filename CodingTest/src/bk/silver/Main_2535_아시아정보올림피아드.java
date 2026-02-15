@@ -3,7 +3,6 @@ package bk.silver; // 5
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.StringTokenizer;
 
 /**
@@ -14,7 +13,7 @@ import java.util.StringTokenizer;
  * - 조건문 조건 확인 필수
  * - 일단 전부를 스캔하는 습관을 가지기
  */
-public class _2535_아시아정보올림피아드 {
+public class Main_2535_아시아정보올림피아드 {
     static class Student implements Comparable<Student> {
         int country;
         int num;
