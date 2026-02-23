@@ -58,5 +58,7 @@ public class _Main_1181_단어정렬 {
 		for(String s : list) {
 			sb.append(s).append("\n");
 		}
+		
+		System.out.println(sb.toString());
 	}
 }
