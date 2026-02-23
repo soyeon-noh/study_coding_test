@@ -31,7 +31,7 @@ import java.io.InputStreamReader;
  * - 꼬이면 답도없다. 진짜 이런 문제에 시간을 너무 잡아먹음
  * - 조건문 범벅으로 해결하지말고 최대한 심플하게 작성하는 방법을 생각하자
  */
-public class _Main_4335_숫자맞추기 {
+public class Main_4335_숫자맞추기 {
 
     // 업, 다운이 이해하기 편해 변경함
     static final String down = "too high";

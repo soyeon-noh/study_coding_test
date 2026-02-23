@@ -26,7 +26,7 @@ import java.util.StringTokenizer;
  * - 일단 무식하게 다 계산해보고 하나하나 세보도록 하겠습니다
  * -
  */
-public class _Main_1531_투명{
+public class Main_1531_투명{
 
     static int N, M;
     static int[][] map;
