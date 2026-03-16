@@ -63,7 +63,7 @@ public class Main_2630_색종이만들기 {
 			ans[firstColor]++;
 			return;
 		}
-		
+
 		// 종이의 색이 통일되지 않은 경우 탐색 종료하고 재귀 
 		next :for(int r = startR; r <= endR; r++) { // 오답노트 : <= 를 하지 않아 마지막 행렬을 확인안함 
 			for(int c = startC; c <= endC; c++) {
